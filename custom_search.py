@@ -16,7 +16,7 @@ from googleapiclient.discovery import build
 IMAGE_DIR = os.path.dirname(os.path.abspath(__file__)) + "/images"
 
 # 取得したgoogle関連情報
-GOOGLE_API_KEY = "**************"
+GOOGLE_API_KEY = "*************"
 GOOGLE_ENGINE_ID = "**************"
 
 
@@ -60,7 +60,7 @@ class CustomSearch(object):
 
         return image_info
 
-    def save_images(self, word, max_count=101, resize=False):
+    def save_images(self, word, max_count=100, resize=False):
         """
         画像を取得する
         """
@@ -70,7 +70,7 @@ class CustomSearch(object):
         if not os.path.exists(dir_name):
             os.mkdir(dir_name)
 
-        for start in range(1, max_count):
+        for start in range(1, max_count+1):
             image_info = self.get_image_info(word, start)
             for image in image_info:
                 file_name = self.create_file_name(
@@ -127,5 +127,5 @@ class CustomSearch(object):
 if __name__ == '__main__':
     
     custom_search = CustomSearch(GOOGLE_API_KEY, GOOGLE_ENGINE_ID)
-    custom_search.save_images("cat", max_count=2, resize=True)
+    custom_search.save_images("cat", max_count=1, resize=True)
 
