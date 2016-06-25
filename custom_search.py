@@ -16,8 +16,8 @@ from googleapiclient.discovery import build
 IMAGE_DIR = os.path.dirname(os.path.abspath(__file__)) + "/images"
 
 # 取得したgoogle関連情報
-GOOGLE_API_KEY = "*************"
-GOOGLE_ENGINE_ID = "**************"
+GOOGLE_API_KEY = "*********"
+GOOGLE_ENGINE_ID = "**********"
 
 
 class CustomSearch(object):
@@ -127,5 +127,5 @@ class CustomSearch(object):
 if __name__ == '__main__':
     
     custom_search = CustomSearch(GOOGLE_API_KEY, GOOGLE_ENGINE_ID)
-    custom_search.save_images("cat", max_count=1, resize=True)
+    custom_search.save_images("cat", max_count=1, resize=False)
 
